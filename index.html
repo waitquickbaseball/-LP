@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>内藤賢志郎｜企業・自治体の理念と物語を、未来に残す映像資産へ</title>
+    <meta name="description"
+        content="元テレビ局ディレクターが、企業・自治体の歴史や理念を“映像資産”として設計・制作。ブランディング／採用／周年／ドキュメンタリー。相談・見積・発注まで1分で完結。" />
+    <style>
+        :root {
+            --bg: #050a18;
+            --panel: rgba(255, 255, 255, .05);
+            --panel2: rgba(255, 255, 255, .08);
+            --text: #f8f9fa;
+            --muted: rgba(248, 249, 250, .72);
+            --muted2: rgba(248, 249, 250, .52);
+            --line: rgba(255, 255, 255, .1);
+            --accent: #c9a86a;
+            --accent2: #7aa2ff;
+            --radius: 12px;
+            --shadow: 0 10px 40px rgba(0, 0, 0, .4);
+            --shadow2: 0 4px 20px rgba(0, 0, 0, .25);
+            --max: 1000px;
+        }
+
+        .ib {
+            display: inline-block;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", Arial;
+            color: var(--text);
+            background:
+                radial-gradient(1200px 700px at 70% -10%, rgba(201, 168, 106, .08), transparent 60%),
+                radial-gradient(1000px 650px at 0% 30%, rgba(122, 162, 255, .05), transparent 65%),
+                #050a18;
+            overflow-x: hidden;
+            line-height: 1.8;
+            /* Base line-height increased */
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background: rgba(5, 10, 24, .8);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 220px;
+        }
+
+        .logo {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(201, 168, 106, .9), rgba(122, 162, 255, .75));
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .4);
+        }
+
+        .brand .name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+        }
+
+        .brand .name b {
+            font-size: 14px;
+            letter-spacing: .04em;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(201, 168, 106, .3);
+        }
+
+        .brand .name span {
+            font-size: 12px;
+            color: var(--muted2)
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--muted);
+            padding: 8px 10px;
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, .06);
+            color: var(--text)
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 10px;
+            min-width: 220px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            color: var(--text);
+            padding: 10px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: .18s ease;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, .07)
+        }
+
+        .btn.primary {
+            border-color: rgba(201, 168, 106, .55);
+            background: linear-gradient(135deg, rgba(201, 168, 106, .22), rgba(122, 162, 255, .12));
+        }
+
+        .btn.primary:hover {
+            border-color: rgba(201, 168, 106, .85)
+        }
+
+        .hero {
+            padding: 64px 0 28px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .kicker {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--panel);
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: .04em;
+            margin-bottom: 32px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 16px rgba(201, 168, 106, .55);
+        }
+
+        h1 {
+            margin: 0 0 64px;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .text-accent {
+            color: var(--accent);
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(201, 168, 106, .3);
+        }
+
+        .text-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.15em;
+            text-shadow: 0 0 10px rgba(201, 168, 106, .2);
+        }
+
+        .highlights {
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .highlights h2 {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 32px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        .stat-value small {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .stat-desc {
+            display: block;
+            font-size: 11px;
+            color: var(--muted2);
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+        }
+
+        .mobile-menu-btn span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text);
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 10, 24, 0.98);
+            backdrop-filter: blur(16px);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s ease;
+        }
+
+        .mobile-nav-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-nav-link {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 12px;
+            transition: .2s;
+        }
+
+        .mobile-nav-link:active {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0.96);
+        }
+
+
+        .lead {
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 2.1;
+            /* Improved readability */
+            margin: 0 auto 80px;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin: 0;
+        }
+
+
+
+        .panel {
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow2);
+        }
+
+        .hero-card {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card:before {
+            content: "";
+            position: absolute;
+            inset: -30% -30%;
+            background:
+                radial-gradient(450px 260px at 20% 20%, rgba(201, 168, 106, .20), transparent 60%),
+                radial-gradient(520px 320px at 80% 40%, rgba(122, 162, 255, .18), transparent 60%);
+            filter: blur(10px);
+            opacity: .85;
+            pointer-events: none;
+        }
+
+        .hero-card>* {
+            position: relative
+        }
+
+        .stat {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat .box {
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .20);
+        }
+
+        .stat .box b {
+            display: block;
+            font-size: 14px;
+            letter-spacing: .02em
+        }
+
+        .stat .box span {
+            display: block;
+            font-size: 12px;
+            color: var(--muted2);
+            margin-top: 6px;
+            line-height: 1.5
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--line);
+            margin: 8px 0;
+        }
+
+        .mini {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .mini .pill {
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(255, 255, 255, .03);
+            padding: 7px 10px;
+            border-radius: 999px;
+        }
+
+        section {
+            padding: 36px 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 16px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: .03em;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 4px;
+        }
+
+        .section-title p {
+            margin: 0;
+            color: var(--muted2);
+            font-size: 12px;
+            line-height: 1.6
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .card {
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+            box-shadow: var(--shadow2);
+            transition: .2s ease;
+            backdrop-filter: blur(5px);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, .05);
+        }
+
+        .card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .philosophy-text {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 2.2;
+            /* Improved readability */
+            color: var(--text);
+        }
+
+        .philosophy-text p {
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 15px
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .badge i {
+            width: 10px;
+            height: 10px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, rgba(201, 168, 106, .95), rgba(122, 162, 255, .80));
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .svc {
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+            box-shadow: var(--shadow2);
+            backdrop-filter: blur(5px);
+        }
+
+        .svc h3 {
+            margin: 0 0 10px;
+            font-size: 16px
+        }
+
+        .svc ul {
+            margin: 10px 0 0;
+            padding-left: 18px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .price {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 168, 106, .2);
+            background: rgba(201, 168, 106, .05);
+            color: var(--text);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .price b {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .step {
+            padding: 16px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+        }
+
+        .step b {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .num {
+            width: 26px;
+            height: 26px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(122, 162, 255, .14);
+            border: 1px solid rgba(122, 162, 255, .25);
+            color: rgba(233, 238, 247, .92);
+            font-weight: 700;
+        }
+
+        .step p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .cta {
+            padding: 22px;
+            border-radius: calc(var(--radius) + 6px);
+            border: 1px solid rgba(201, 168, 106, .35);
+            background:
+                radial-gradient(600px 300px at 10% 10%, rgba(201, 168, 106, .18), transparent 60%),
+                radial-gradient(700px 380px at 90% 30%, rgba(122, 162, 255, .16), transparent 60%),
+                rgba(255, 255, 255, .03);
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .cta h3 {
+            margin: 0 0 6px;
+            font-size: 18px
+        }
+
+        .cta p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 720px
+        }
+
+        .cta .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        footer {
+            padding: 26px 0 40px;
+            color: var(--muted2);
+            font-size: 12px;
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-legal {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+            font-size: 11px;
+            line-height: 1.8;
+            color: var(--muted2);
+        }
+
+        .footer-legal-title {
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-legal-sub {
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .footer-legal-link {
+            color: var(--accent);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .footer-legal-link:hover {
+            color: var(--text);
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, .62);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+        }
+
+        .modal {
+            width: min(720px, 100%);
+            max-height: 90vh;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(5, 10, 24, .95);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .modal-head b {
+            font-size: 14px;
+            letter-spacing: .03em
+        }
+
+        .xbtn {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .04);
+            color: var(--text);
+            border-radius: 12px;
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 18px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(0, 0, 0, .25);
+            color: var(--text);
+            outline: none;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+            grid-column: 1 / -1;
+        }
+
+        .form-row {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+
+        .hint {
+            font-size: 12px;
+            color: var(--muted2);
+            line-height: 1.6
+        }
+
+        .send {
+            cursor: pointer;
+            border: 1px solid rgba(201, 168, 106, .55);
+            background: linear-gradient(135deg, rgba(201, 168, 106, .22), rgba(122, 162, 255, .12));
+            padding: 12px 14px;
+            border-radius: 12px;
+            color: var(--text);
+        }
+
+        .send:hover {
+            border-color: rgba(201, 168, 106, .85);
+            transform: translateY(-1px);
+        }
+
+
+        @media (max-width: 980px) {
+            h1 {
+                font-size: 38px
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 14px
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .grid3 {
+                grid-template-columns: 1fr
+            }
+
+            .services {
+                grid-template-columns: 1fr
+            }
+
+            .process {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width: 520px) {
+            h1 {
+                font-size: 32px
+            }
+
+            .process {
+                grid-template-columns: 1fr
+            }
+
+            form {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <div class="nav">
+        <div class="wrap">
+            <div class="nav-inner">
+                <a class="brand" href="#top" aria-label="Top">
+                    <div class="logo"></div>
+                    <div class="name">
+                        <b>KENSHIRO NAITO</b>
+                        <span>Story-driven Video / Strategy</span>
+                    </div>
+                </a>
+
+                <div class="nav-links" aria-label="Navigation">
+                    <a href="#philosophy">理念</a>
+                    <a href="profile.html">プロフィール</a>
+                    <a href="#services">サービス</a>
+                    <a href="#works">実績</a>
+                </div>
+
+                <div class="nav-cta">
+                    <a class="btn" href="#services">サービス</a>
+                    <a class="btn primary"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSe2X37gYyR8pTpDDF6LcSjjZajDcGjepVmu490_sfBwu9Y_uA/viewform"
+                        target="_blank" rel="noopener noreferrer">相談・見積</a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <main id="top" class="hero">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <div class="kicker"><span class="dot"></span>企業・自治体の理念と歴史を、未来に残す「映像資産」に。</div>
+                    <h1><span class="ib">あなたの<span class="text-accent">理念</span>と</span><span class="ib"><span
+                                class="text-accent">物語</span>を、</span><span class="ib">未来に残す。</span></h1>
+                    <p class="lead"><span class="ib">元テレビ局ディレクターが、</span><span class="ib">採用・ブランディング・</span><span
+                            class="ib">理念/沿革の映像を</span> <span class="ib">企画から制作まで</span><span
+                            class="ib">一貫して支援します。</span></p>
+
+                    <div class="hero-actions">
+                        <a class="btn primary"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSe2X37gYyR8pTpDDF6LcSjjZajDcGjepVmu490_sfBwu9Y_uA/viewform"
+                            target="_blank" rel="noopener noreferrer">仕事の依頼 / 相談</a>
+                        <a class="btn" href="#services">提供サービスを見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights">
+        <div class="wrap">
+            <h2>主な実績・経歴</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">YouTube総再生</span>
+                    <span class="stat-value">1,700<small>万回超</small></span>
+                    <span class="stat-desc">『教えてギータ先生』企画・演出</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">G帯 特番視聴率</span>
+                    <span class="stat-value">10.2<small>%</small></span>
+                    <span class="stat-desc">『王イズムを受け継ぐ男たち』</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">日本シリーズ中継</span>
+                    <span class="stat-value">4<small>回</small></span>
+                    <span class="stat-desc">全国ネット演出・制作</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy">
+        <div class="wrap">
+            <div class="section-title">
+                <div>
+                    <h2>Philosophy</h2>
+                    <p><span class="ib">見えない価値を映像で</span><br><span class="ib">「信頼」に変える。</span></p>
+                </div>
+            </div>
+
+            <div class="philosophy-text">
+                <p><span class="ib">私はテレビ局で</span><span class="ib"><span class="text-highlight">12年間</span>、</span><span
+                        class="ib">番組作りに従事しました。</span><br /><span class="ib"><span
+                            class="text-highlight">ゴールデン帯の特番</span>や</span><span class="ib"><span
+                            class="text-highlight">全国ネット中継</span>など、</span><span
+                        class="ib">マスメディアの最前線で</span><br /><span class="ib"><span
+                            class="text-highlight">「伝える力」</span>を</span><span class="ib">磨き続けてきました。</span></p>
+                <p><span class="ib">これからは積み上げた経験を生かして、</span><span class="ib">誰かの<span
+                            class="text-highlight">理念</span>・</span><span class="ib"><span
+                            class="text-highlight">哲学</span>・</span><span class="ib"><span
+                            class="text-highlight">言葉</span>を、</span><br /><span class="ib"><span
+                            class="text-highlight">「映像資産」</span>として</span><span class="ib">残したい。</span></p>
+                <p>心を動かす瞬間を創り出したいと思っています。</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="wrap">
+            <div class="section-title">
+                <div>
+                    <h2>サービス</h2>
+                    <p>案件規模と目的に合わせて、最小〜本格まで設計できます。</p>
+                </div>
+                <div>
+                    <a class="btn primary"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSe2X37gYyR8pTpDDF6LcSjjZajDcGjepVmu490_sfBwu9Y_uA/viewform"
+                        target="_blank" rel="noopener noreferrer">相談・見積</a>
+                </div>
+            </div>
+
+            <div class="services">
+                <div class="svc">
+                    <h3>① 映像制作（単発）</h3>
+                    <div class="mini">
+                        <span class="pill">理念ムービー</span><span class="pill">採用</span><span class="pill">周年</span><span
+                            class="pill">ドキュメンタリー</span>
+                    </div>
+                    <ul>
+                        <li>企画から撮影・編集までワンストップ対応</li>
+                        <li>SNS向けの短尺版も制作可能</li>
+                        <li>ご予算に応じて柔軟にご提案</li>
+                    </ul>
+                    <div class="price">
+                        <b>目安：</b> 50万〜300万円（内容により変動）
+                    </div>
+                </div>
+
+                <div class="svc">
+                    <h3>② 戦略顧問（伴走）</h3>
+                    <div class="mini">
+                        <span class="pill">映像×ブランド</span><span class="pill">YouTube</span><span class="pill">採用広報</span>
+                    </div>
+                    <ul>
+                        <li>毎月の定例で映像戦略をサポート</li>
+                        <li>社内への説明資料づくりもお手伝い</li>
+                        <li>必要に応じて制作も対応可能</li>
+                    </ul>
+                    <div class="price">
+                        <b>目安：</b> 月15万〜50万円
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:14px" class="svc">
+                <h3>③ 執筆・講演</h3>
+                <div class="mini">
+                    <span class="pill">映像制作術</span><span class="pill">物語設計</span>
+                </div>
+                <ul>
+                    <li>社内研修やイベント登壇など</li>
+                </ul>
+                <div class="price">
+                    <b>目安：</b> 5万円〜
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- WORKS -->
+    <section id="works">
+        <div class="wrap">
+            <div class="section-title">
+                <div>
+                    <h2>過去の番組制作実績</h2>
+                    <p>一部のみ掲載。詳細は面談で共有します。</p>
+                </div>
+            </div>
+
+            <div class="grid3">
+                <a href="https://www.youtube.com/watch?v=7fIsBAfcrug" target="_blank" rel="noopener noreferrer"
+                    class="card-link">
+                    <div class="card">
+                        <h3>柳田悠岐選手の教えてギータ先生</h3>
+                        <p>Youtube総再生回数1700万回超</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=Ed4l8sQMqHA" target="_blank" rel="noopener noreferrer"
+                    class="card-link">
+                    <div class="card">
+                        <h3>王イズムを受け継ぐ男たち</h3>
+                        <p>視聴率10.2%　YouTube再生140万回超</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=a7V1svcHr94" target="_blank" rel="noopener noreferrer"
+                    class="card-link">
+                    <div class="card">
+                        <h3>千賀滉大 最後の下克上</h3>
+                        <p>メジャー挑戦　渡米に独占密着</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=iUhc8xTYENQ" target="_blank" rel="noopener noreferrer"
+                    class="card-link">
+                    <div class="card">
+                        <h3 style="font-size: 13px;">密着200日 中村晃 ～もうひとつの闘い～</h3>
+                        <p>難病からの復活劇を独占取材</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=w5zVdiRe0c8" target="_blank" rel="noopener noreferrer"
+                    class="card-link">
+                    <div class="card">
+                        <h3>不器用な監督 工藤公康の７年</h3>
+                        <p>視聴率7.0% YouTube再生69万回超</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=0loKKihxAHU" target="_blank" rel="noopener noreferrer"
+                    class="card-link">
+                    <div class="card">
+                        <h3 style="font-size: 12px;">和田毅×城島健司 18.44 未来へのバッテリー</h3>
+                        <p>視聴率7.0% YouTube再生26万回超</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTE SECTION -->
+    <section id="note">
+        <div class="wrap">
+            <div class="section-title">
+                <div>
+                    <h2>Words / Philosophy</h2>
+                    <p>映像制作者の本音を綴ってます</p>
+                </div>
+            </div>
+
+            <a href="https://note.com/kenshi_story" target="_blank" rel="noopener" class="note-card">
+                <div class="note-bg" style="background-image: url('note_bg.jpg');"></div>
+                <div class="note-overlay"></div>
+                <div class="note-content">
+                    <div class="note-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.06 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM12 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM6.94 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                        </svg>
+                    </div>
+                    <h3>内藤賢志郎のnote</h3>
+                    <p>映像制作の物語と、日々の思考。<br>クリックして記事を読む <span
+                            style="font-size:1.2em; vertical-align:middle;">&rarr;</span></p>
+                </div>
+            </a>
+
+            <style>
+                .note-card {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: 380px;
+                    border-radius: var(--radius);
+                    overflow: hidden;
+                    text-decoration: none;
+                    box-shadow: var(--shadow2);
+                    border: 1px solid var(--line);
+                }
+
+                .note-bg {
+                    position: absolute;
+                    inset: 0;
+                    background-size: cover;
+                    background-position: center;
+                    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+                    z-index: 0;
+                }
+
+                .note-card:hover .note-bg {
+                    transform: scale(1.06);
+                }
+
+                .note-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+                    z-index: 1;
+                    transition: background 0.3s ease;
+                }
+
+                .note-card:hover .note-overlay {
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+                }
+
+                .note-content {
+                    position: relative;
+                    z-index: 2;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    text-align: center;
+                    padding: 20px;
+                }
+
+                .note-icon {
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 20px;
+                    background: #41C9B4;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+                    margin-bottom: 20px;
+                    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                }
+
+                .note-card:hover .note-icon {
+                    transform: scale(1.1) rotate(-5deg);
+                }
+
+                .note-card h3 {
+                    font-size: 26px;
+                    font-weight: 800;
+                    margin: 0 0 12px;
+                    letter-spacing: 0.05em;
+                    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+                }
+
+                .note-card p {
+                    font-size: 15px;
+                    color: rgba(255, 255, 255, 0.9);
+                    line-height: 1.8;
+                    margin: 0;
+                    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+                }
+
+                @media (max-width: 600px) {
+                    .note-card {
+                        height: 320px;
+                    }
+
+                    .note-card h3 {
+                        font-size: 22px;
+                    }
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap"
+            style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center;">
+            <div>
+                <div style="font-weight:700; color:rgba(233,238,247,.92)">内藤賢志郎</div>
+                <div style="margin-top:6px">Story-driven Video / Strategy</div>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center;">
+                <a href="https://note.com/kenshi_story" target="_blank" rel="noopener"
+                    style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid var(--accent); background:rgba(201,168,106,.1); color:var(--accent); transition:.25s ease;"
+                    title="note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.06 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM12 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM6.94 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                    </svg>
+                </a>
+                <a href="https://x.com/kenshi_story?s=21" target="_blank" rel="noopener"
+                    style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid var(--accent); background:rgba(201,168,106,.1); color:var(--accent); transition:.25s ease;"
+                    title="X">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/kenshironaitou?igsh=d2tqN2Y1cnh3c2Fu&utm_source=qr" target="_blank"
+                    rel="noopener"
+                    style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid var(--accent); background:rgba(201,168,106,.1); color:var(--accent); transition:.25s ease;"
+                    title="Instagram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.057-2.148.26-2.911.557-.789.306-1.459.717-2.126 1.384-.667.667-1.078 1.337-1.384 2.126-.297.763-.5 1.634-.557 2.911-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.057 1.277.26 2.148.557 2.911.306.789.717 1.459 1.384 2.126.667.667 1.337 1.078 2.126 1.384.763.297 1.634.5 2.911.557 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.277-.057 2.148-.26 2.911-.557.789-.306 1.459-.717 2.126-1.384.667-.667 1.078-1.337 1.384-2.126.297-.763.5-1.634.557-2.911.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.057-1.277-.26-2.148-.557-2.911-.306-.789-.717-1.459-1.384-2.126-.667-.667-1.337-1.078-2.126-1.384-.763-.297-1.634-.5-2.911-.557-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+            </div>
+            <div style="text-align:right">
+                <a class="btn" href="#top" style="box-shadow:none">↑ Top</a>
+                <div style="margin-top:10px">© <span id="year"></span> Kenshiro Naito</div>
+            </div>
+        </div>
+
+        <!-- 事業者情報 + プライバシー要約 -->
+        <div class="wrap footer-legal">
+            <div class="footer-legal-title">事業者：K-studio</div>
+            <div class="footer-legal-body">
+                <span class="footer-legal-sub">プライバシーポリシー（要約）</span><br>
+                当サイトでは、お問い合わせ時に氏名・メールアドレス等の個人情報を取得する場合があります。取得した個人情報は、お問い合わせへの回答・ご連絡、サービス提供および品質向上の目的で利用し、法令に基づく場合を除き第三者に提供しません。個人情報の開示・訂正・削除等のご希望を含むお問い合わせは全て、
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2X37gYyR8pTpDDF6LcSjjZajDcGjepVmu490_sfBwu9Y_uA/viewform"
+                    target="_blank" rel="noopener noreferrer" class="footer-legal-link">【相談・見積】フォーム</a>
+                よりご連絡ください。
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="#top" class="mobile-nav-link">トップ</a>
+        <a href="profile.html" class="mobile-nav-link" style="color:var(--accent);">プロフィール</a>
+        <a href="#services" class="mobile-nav-link">サービス</a>
+        <a href="#works" class="mobile-nav-link">実績</a>
+        <a href="#philosophy" class="mobile-nav-link">理念</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2X37gYyR8pTpDDF6LcSjjZajDcGjepVmu490_sfBwu9Y_uA/viewform"
+            target="_blank" rel="noopener noreferrer" class="btn primary"
+            style="margin-top:32px; font-size:16px; padding:16px 32px; width:80%; justify-content:center;">相談・見積</a>
+    </div>
+
+
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="lp-sticky-cta">
+        <div class="inner">
+            <a class="btn" href="#services" style="justify-content:center; background:rgba(255,255,255,0.1);">サービス</a>
+            <a class="btn primary"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe2X37gYyR8pTpDDF6LcSjjZajDcGjepVmu490_sfBwu9Y_uA/viewform"
+                target="_blank" rel="noopener noreferrer" style="justify-content:center;">相談・見積</a>
+        </div>
+    </div>
+
+    <!-- LP Styles & Scripts -->
+    <style>
+        :where(a, button, input, textarea, select):focus-visible {
+            outline: 2px solid rgba(201, 168, 106, .9);
+            outline-offset: 3px;
+        }
+
+        .lp-sticky-cta {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 60;
+            padding: 10px 12px;
+            background: rgba(5, 10, 24, .86);
+            border-top: 1px solid rgba(255, 255, 255, .10);
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+
+        .lp-sticky-cta .inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 980px) {
+            .lp-sticky-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 72px;
+            }
+        }
+    </style>
+
+    <script>
+        (function () {
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+                a.addEventListener("click", function (e) {
+                    var href = a.getAttribute("href");
+                    if (!href || href === "#") return;
+                    var target = document.querySelector(href);
+                    if (!target) return;
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            });
+
+            // Intersection Observer for Fade-in Animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-up, .card, .svc, .step, .philosophy-text p, .hero-grid > div');
+            fadeElements.forEach(el => {
+                el.classList.add('fade-in-up');
+                observer.observe(el);
+            });
+
+        })();
+    </script>
+
+    <script>
+        // Year
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMobileMenu() {
+            if (!mobileNav || !mobileBtn) return;
+            const isActive = mobileNav.classList.contains('active');
+            if (isActive) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+                // Restore button icon
+                if (mobileBtn.children.length === 3) {
+                    mobileBtn.children[0].style.transform = 'none';
+                    mobileBtn.children[1].style.opacity = '1';
+                    mobileBtn.children[2].style.transform = 'none';
+                }
+            } else {
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Animate to X
+                if (mobileBtn.children.length === 3) {
+                    mobileBtn.children[0].style.transform = 'translateY(9px) rotate(45deg)';
+                    mobileBtn.children[1].style.opacity = '0';
+                    mobileBtn.children[2].style.transform = 'translateY(-9px) rotate(-45deg)';
+                }
+            }
+        }
+
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', toggleMobileMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMobileMenu);
+            });
+        }
+    </script>
+</body>
+
+</html>

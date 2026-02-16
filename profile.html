@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>プロフィール | 内藤賢志郎</title>
+    <meta name="description" content="内藤賢志郎のプロフィール。元テレビ局ディレクターとしての歩みと、映像制作への想い。" />
+    <!-- OGP -->
+    <meta property="og:title" content="プロフィール | 内藤賢志郎 - 映像ディレクター / プロデューサー" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yoursite.com/profile.html" />
+    <meta property="og:image" content="https://yoursite.com/images/ogp.jpg" />
+    <meta property="og:description" content="元TNCディレクター。ホークス中継・特番制作10年以上。YouTube1700万再生の実績を持つ映像作家。" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kenshi_story" />
+
+    <style>
+        :root {
+            --bg: #050a18;
+            --panel: rgba(255, 255, 255, .03);
+            --panel2: rgba(255, 255, 255, .05);
+            --text: #f8f9fa;
+            --muted: rgba(248, 249, 250, .72);
+            --muted2: rgba(248, 249, 250, .52);
+            --line: rgba(255, 255, 255, .1);
+            --accent: #c9a86a;
+            --accent-glow: rgba(201, 168, 106, .4);
+            --radius: 16px;
+            --shadow: 0 10px 40px rgba(0, 0, 0, .4);
+            --shadow2: 0 4px 20px rgba(0, 0, 0, .25);
+            --max: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", Arial;
+            color: var(--text);
+            background: #050a18;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(201, 168, 106, 0.08), transparent 40%),
+                radial-gradient(circle at 90% 60%, rgba(122, 162, 255, 0.05), transparent 40%);
+            overflow-x: hidden;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(5, 10, 24, .85);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand .name b {
+            font-size: 15px;
+            letter-spacing: .05em;
+            color: var(--accent);
+            text-shadow: 0 0 12px rgba(201, 168, 106, .3);
+        }
+
+        .logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(201, 168, 106, .9), rgba(122, 162, 255, .75));
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--muted);
+            padding: 6px 0;
+            border-bottom: 1px solid transparent;
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Profile Layout */
+        .profile-hero {
+            padding: 80px 0 60px;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .profile-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .profile-img {
+            width: 100%;
+            aspect-ratio: 5/7;
+            /* Slightly taller */
+            background: var(--panel2);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .profile-img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .profile-content {
+            padding-top: 10px;
+        }
+
+        .profile-content .title {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .profile-content h1 {
+            font-size: 48px;
+            margin: 0 0 32px;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, #ccc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+        }
+
+        .profile-content p {
+            font-size: 16px;
+            line-height: 2.2;
+            /* Improved readability */
+            color: #d0d4dc;
+            margin-bottom: 28px;
+            text-align: justify;
+        }
+
+        /* Highlights Card */
+        .highlights {
+            margin-top: 50px;
+            padding: 36px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .highlights h2 {
+            font-size: 18px;
+            margin: 0 0 24px;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .highlights h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .highlights ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .highlights li {
+            font-size: 15px;
+            margin-bottom: 14px;
+            padding-left: 24px;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .highlights li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* Sidebar Elements */
+        .profile-sidebar-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .sns-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .sns-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--muted);
+            transition: .3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .sns-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .sns-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, rgba(201, 168, 106, 0.2), rgba(122, 162, 255, 0.1));
+            border: 1px solid rgba(201, 168, 106, 0.4);
+            border-radius: 12px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            transition: .3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(201, 168, 106, 0.2);
+            background: linear-gradient(135deg, rgba(201, 168, 106, 0.3), rgba(122, 162, 255, 0.2));
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--line);
+            text-align: center;
+            color: var(--muted2);
+            font-size: 12px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .profile-hero {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding-top: 40px;
+            }
+
+            /* Ungroup layout containers to allow reordering children */
+            .profile-sidebar,
+            .profile-content {
+                display: contents;
+            }
+
+            /* 1. Name & Intro */
+            .profile-content>.title,
+            .profile-content>h1,
+            .profile-content>p {
+                order: 1;
+            }
+
+            .profile-content h1 {
+                font-size: 36px;
+                text-align: center;
+                margin-bottom: 24px;
+            }
+
+            .profile-content .title {
+                text-align: center;
+            }
+
+            .profile-content p {
+                text-align: left;
+                margin-bottom: 32px;
+            }
+
+            /* 2. SNS & CTA */
+            .profile-sidebar-inner {
+                order: 2;
+                width: 100%;
+                margin-top: 0;
+                margin-bottom: 40px;
+            }
+
+            /* 3. Highlights */
+            .highlights {
+                order: 3;
+                width: 100%;
+                margin-top: 0;
+                margin-bottom: 40px;
+            }
+
+            /* 4. Photo */
+            .profile-img {
+                order: 4;
+                aspect-ratio: 1/1;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="wrap">
+            <div class="nav-inner">
+                <a class="brand" href="index.html">
+                    <div class="logo"></div>
+                    <div class="name">
+                        <b>KENSHIRO NAITO</b>
+                    </div>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">トップ</a>
+                    <a href="index.html#services">サービス</a>
+                    <a href="index.html#works">実績</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="wrap">
+        <section class="profile-hero">
+            <div class="profile-sidebar">
+                <div class="profile-img">
+                    <img src="profile.jpg" alt="内藤 賢志郎" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="profile-sidebar-inner">
+                    <div class="sns-group">
+                        <a href="https://note.com/kenshi_story" target="_blank" rel="noopener" class="sns-btn"
+                            title="note">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M17.06 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM12 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM6.94 13.1c-.94 0-1.7.76-1.7 1.7s.76 1.7 1.7 1.7 1.7-.76 1.7-1.7-.76-1.7-1.7-1.7zm0 2.4c-.39 0-.7-.31-.7-.7s.31-.7.7-.7.7.31.7.7-.31.7-.7.7zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                            </svg>
+                        </a>
+                        <a href="https://x.com/kenshi_story?s=21" target="_blank" rel="noopener" class="sns-btn"
+                            title="X">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/kenshironaitou?igsh=d2tqN2Y1cnh3c2Fu&utm_source=qr"
+                            target="_blank" rel="noopener" class="sns-btn" title="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.057-2.148.26-2.911.557-.789.306-1.459.717-2.126 1.384-.667.667-1.078 1.337-1.384 2.126-.297.763-.5 1.634-.557 2.911-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.057 1.277.26 2.148.557 2.911.306.789.717 1.459 1.384 2.126.667.667 1.337 1.078 2.126 1.384.763.297 1.634.5 2.911.557 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.277-.057 2.148-.26 2.911-.557.789-.306 1.459-.717 2.126-1.384.667-.667 1.078-1.337 1.384-2.126.297-.763.5-1.634.557-2.911.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.057-1.277-.26-2.148-.557-2.911-.306-.789-.717-1.459-1.384-2.126-.667-.667-1.337-1.078-2.126-1.384-.763-.297-1.634-.5-2.911-.557-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div style="margin-top: 18px; display: flex; justify-content: center;">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2X37gYyR8pTpDDF6LcSjjZajDcGjepVmu490_sfBwu9Y_uA/viewform"
+                            target="_blank" rel="noopener" class="cta-btn">
+                            仕事の依頼 / 相談
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <span class="title">映像ディレクター / プロデューサー</span>
+                <h1>内藤 賢志郎</h1>
+                <p>
+                    1990年、福岡県うきは市生まれ。福岡市在住。<br>
+                    中学時代は硬式野球（ボーイズリーグ）で日本代表として世界一。<br>慶應高校では春夏連続甲子園出場（夏ベスト8）を果たす。<br>
+                    慶應大学では東京六大学リーグ戦出場。<br><br>
+                    卒業後はテレビ西日本(TNC)入社。<br>
+                    スポーツ部で12年間ディレクター・プロデューサーとして従事。<br>
+                    福岡ソフトバンクホークス担当として、全国ネット中継や特番制作10本以上を手掛けた。<br>
+                    2026年4月に独立。
+                </p>
+
+                <div class="highlights">
+                    <h2>主な実績・経歴</h2>
+                    <ul>
+                        <li>12年間 福岡ソフトバンクホークス担当（特番10本以上）</li>
+                        <li>全国ネット 日本シリーズ中継：2019 / 2020 / 2024 / 2025</li>
+                        <li>YouTube総再生回数 1,700万回超『教えてギータ先生』</li>
+                        <li>地上波G帯 視聴率10.2%『王イズムを受け継ぐ男たち』</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            &copy; 2026 Kenshiro Naito. All rights reserved.
+    </footer>
+
+    <script>
+        // Intersection Observer for Fade-in Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const fadeElements = document.querySelectorAll('.profile-content, .profile-sidebar, .highlights');
+        fadeElements.forEach(el => {
+            el.classList.add('fade-in-up');
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
